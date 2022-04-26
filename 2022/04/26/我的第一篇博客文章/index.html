@@ -4,12 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="我的第一篇博客文章, king">
-    <meta name="description" content="##第一章内容
-
-##第二章内容
-
-">
+    <meta name="keywords" content="我的第一篇博客文章就记录自己安装hexo的过程吧, king">
+    <meta name="description" content="花费了很久的时间总算是完成了这一次个人博客的建立，虽然过程看着很简单，但是在实际动手过程中还是有着很多的问题感谢B站up主CodeSheep的教程首先需要安装nodejs ，在官网上直接去下载就行了安装完成后进入命令管理器 win10是输入">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +19,7 @@
 
     
 
-    <title>我的第一篇博客文章 | king</title>
+    <title>我的第一篇博客文章就记录自己安装hexo的过程吧 | king</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -313,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">我的第一篇博客文章</h1>
+                    <h1 class="description center-align post-title">我的第一篇博客文章就记录自己安装hexo的过程吧</h1>
                 </div>
             </div>
         </div>
@@ -467,9 +463,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>##第一章<br>内容</p>
+                <p>花费了很久的时间总算是完成了这一次个人博客的建立，虽然过程看着很简单，但是在实际动手过程中还是有着很多的问题<br>感谢B站up主CodeSheep的教程<br>首先需要安装nodejs ，在官网上直接去下载就行了<br>安装完成后进入命令管理器 win10是输入cmd进入命令管理器. up主用的是苹果的电脑，苹果系统输入的是node -v  查看node版本 win10系统则是直接node 就可以查看node版本了<br>mac需要sudo win10则不用 后面以个人实际操作为主讲述<br>nodejs版本正常显示后,输入npm查看npm版本 npm版本显示正常后 输入:<br>npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>输入cnpm 查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>直接mkdir blog是在c盘用户下创建blog文件夹的，个人因为习惯问题不想把文件夹简历在c盘下，发现在其他盘创建文件夹是没有影响的并且发现在创建完成的文件夹目录直接cmd 则是直接在当前目录打开命令管理器<br>输入hexo init 本来这一步应该是生成博客的，但是本人输入后提示错误，大概意思是git错误，在这之前我都不知道git是什么东西，在弹幕大佬的提示下知道需要先下载git，git在官网上下载贼慢，下到一半还报错显示连接超时，后来寻找到github上有大佬有所有版本的git，在github上下载了git<br>下次git完成后，检查git版本信息，无误后，重新hexo init 这次没有报错，博客初始化成功了，输入hexo s 启动本地博客服务<br>显示出一个网址<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a>   复制这个网址在浏览器打开后，发现显示出来了，我成功了。自动生成了一篇博客叫hello world 典中典。。<br>在blog目录下 输入hexo n 就可以创建新的文章了，在blog/  source/  _posts 目录下可以看到博客文章，可以用习惯的软件打开再进行内容的修改 至此本地的部分就完成了。但是不能只在本地上看吧。接下来就是关键了。<br>#Github创建一个新的仓库 YourGithubName.github.io<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件<br>#配置_config.yml </p>
 <hr>
-<p>##第二章<br>内容</p>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+      type: git
+     repo: https://github.com/YourGithubName/YourGithubName.github.io.git
+      branch: master
+</code></pre>
+<hr>
+<p>hexo d    #部署到Github仓库里<br>win10 记得在 hexo d 之前敲<br>git config –global user.email “xxx”<br>git config –global user.name “xxx”<br>不然是无法跳出登录界面的，并且现在github是需要token登录的。还需要个人去github上自己去弄一个token<br><a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客//这个YourGithubName是你github的名字上面同理<br>至此博客就部署完成了。我个人利用手机打开也能看到我的博客，后续就是一些主题的更换了，后面有时间我再整理。</p>
+<hr>
 <hr>
 
                 
@@ -715,9 +720,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="我的第一篇博客文章">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="我的第一篇博客文章就记录自己安装hexo的过程吧">
                         
-                        <span class="card-title">我的第一篇博客文章</span>
+                        <span class="card-title">我的第一篇博客文章就记录自己安装hexo的过程吧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -746,16 +751,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/26/hello-world/">
+                <a href="/2022/04/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="我的第一篇博客文章就记录自己安装hexo的过程吧">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">我的第一篇博客文章就记录自己安装hexo的过程吧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -776,6 +781,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
