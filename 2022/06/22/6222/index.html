@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="复习笔记-从hello world 到数据类型-字符型, king">
+    <meta name="keywords" content="自己学习写的通讯录管理系统源码, king">
     <meta name="description" content="
-今天决定复习下c++第一个程序还是熟悉的hello world  但是我发现我看的视频里面用的是cout  而我记得当时学习的时候用的是printf我就去查了一下printf 和cout的区别  发现cout是C ++，而printf是C">
+#includeusing namespace std;#include#define MAX 1000//设计联系人结构体struct Person{    //姓名    string m_Name;    //性别    1男  2">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
 
     
 
-    <title>复习笔记-从hello world 到数据类型-字符型 | king</title>
+    <title>自己学习写的通讯录管理系统源码 | king</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">复习笔记-从hello world 到数据类型-字符型</h1>
+                    <h1 class="description center-align post-title">自己学习写的通讯录管理系统源码</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-19
+                    2022-06-22
                 </div>
                 
 
@@ -465,17 +465,233 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <hr>
-<p>今天决定复习下c++<br>第一个程序还是熟悉的hello world  但是我发现我看的视频里面用的是cout  而我记得当时学习的时候用的是printf<br>我就去查了一下printf 和cout的区别  发现cout是C ++，而printf是C（但是，你可以在C ++中使用它，就像C中几乎所有其他东西一样）<br>但是我想可能是cout的效率比printf高吧  于是我又去查了下printf和cout 哪个效率更高。但是结果却显示printf 效率反而更高<br>我带着疑惑继续学习下去</p>
-<p>变量存在的意义，方便我们管理内存空间<br>变量创建的语法: 数据类型 变量名 = 变量初始值<br>                           int  a = 10;</p>
-<p>常量<br>作用 : 用于记录程序中不可更改的数据<br>#define   const</p>
-<p>关键字<br>在定义变量或者常量的时候,不要用关键字</p>
-<p>标识符<br>标识符第一个字符只能是字母或下划线</p>
-<p>数据类型存在意义<br>给变量分配合适的内存空间</p>
-<p>整型<br>整型变量表示的是整数类型的数据<br>区别在于所占内存空间不同</p>
-<p>short  2字节                      -2^15至2^15-1<br>int    4字节                      -2^31至2^31-1<br>long  windows为4字节，linux为4字节(32位) 8字节(64位)<br>long long 8字节                  -2^63~2^63-1</p>
-<p>sizeof 关键字<br>利用sizeof关键字可以统计数据类型所占内存大小</p>
-<p>实型<br>用于表示小数<br>浮点型变量分为两种<br>1 单精度float<br>2 双精度double<br>float   4字节  7位有效数字<br>double 8字节  15-16位有效数字</p>
-<p>字符型<br>字符型变量用于显示单个字符<br>char ch = ‘ a ‘ ;<br>c和c++ 中字符型变量只占用一个字节<br>字符型变量并不是把字符本身放在内存中存储,而是将对应的ASCII编码放入到存储单元<br>a 97 A 65</p>
+<p>#include<iostream><br>using namespace std;<br>#include<string><br>#define MAX 1000<br>//设计联系人结构体<br>struct Person<br>{<br>    //姓名<br>    string m_Name;<br>    //性别    1男  2女<br>    int m_Sex;<br>    //年龄<br>    int m_Age;<br>    //电话<br>    string m_Phone;<br>    //住址<br>    string m_Addr;</p>
+<p>};</p>
+<p>//设计通讯录结构体<br>struct Addressbooks<br>{<br>    //通讯录中保存的联系人<br>    struct Person personArray[MAX];</p>
+<pre><code>//通讯录中当前记录联系人个数
+int m_Size;
+</code></pre>
+<p>};</p>
+<p>//1.添加联系人<br>void addPerson(Addressbooks * abs)<br>{<br>    //判断通讯录是否已满,如果满了就不再添加<br>    if (abs-&gt;m_Size == MAX)<br>    {<br>        cout &lt;&lt; “通讯录已满,无法添加” &lt;&lt; endl;<br>        return;</p>
+<pre><code>&#125;
+else
+&#123;
+    //添加具体联系人
+
+    //姓名
+    string name;
+    cout &lt;&lt; &quot;请输入姓名:  &quot; &lt;&lt; endl;
+    cin &gt;&gt; name;
+    abs-&gt;personArray[abs-&gt;m_Size].m_Name = name;
+    //性别
+    cout &lt;&lt; &quot;请输入性别 &quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;1 --- 男&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;2 --- 女&quot; &lt;&lt; endl;
+    int sex = 0;
+
+    while (true)
+    &#123;
+        cin &gt;&gt; sex;
+        if (sex == 1 || sex == 2)
+        &#123;
+            abs-&gt;personArray[abs-&gt;m_Size].m_Sex = sex;
+            break;
+
+        &#125;
+
+        cout &lt;&lt; &quot;输入有误,请输入1或者2&quot; &lt;&lt; endl;
+    &#125;
+        //年龄
+        cout &lt;&lt; &quot;请输入年龄 :  &quot; &lt;&lt; endl;
+        int age = 0;
+        cin &gt;&gt; age;
+        abs-&gt;personArray[abs-&gt;m_Size].m_Age = age;
+        //电话
+        cout &lt;&lt; &quot;请输入联系电话 : &quot; &lt;&lt; endl;
+        string phone;
+        cin &gt;&gt; phone;
+        abs-&gt;personArray[abs-&gt;m_Size].m_Phone = phone;
+        //住址
+        cout &lt;&lt; &quot;请输入家庭住址 : &quot; &lt;&lt; endl;
+        string address;
+        cin &gt;&gt; address;
+        abs-&gt;personArray[abs-&gt;m_Size].m_Addr = address;
+
+        //更新通讯录人数
+        abs-&gt;m_Size++;
+        cout &lt;&lt; &quot;添加成功&quot; &lt;&lt; endl;
+
+        system(&quot;pause&quot;);
+        system(&quot;cls&quot;);
+
+
+&#125;
+</code></pre>
+<p>}</p>
+<p>//2.显示所有联系人<br>void showPerson(Addressbooks * abs)<br>{<br>    //判断通讯录中人数是否为0,如果为0，提示记录为空<br>    //如果不为0,显示记录的联系人信息<br>    if (abs-&gt;m_Size == 0)<br>    {<br>        cout &lt;&lt; “当前记录为空” &lt;&lt; endl;<br>    }<br>    else<br>    {<br>        for (int i = 0; i &lt; abs-&gt;m_Size; i++)<br>        {<br>            cout &lt;&lt; “姓名:  “ &lt;&lt; abs-&gt;personArray[i].m_Name   &lt;&lt; “\t”;<br>            cout &lt;&lt; “性别:  “ &lt;&lt; (abs-&gt;personArray[i].m_Sex ==1?”男”:”女”)   &lt;&lt; “\t”;<br>            cout &lt;&lt; “年龄   “  &lt;&lt; abs-&gt;personArray[i].m_Age   &lt;&lt; “\t”;<br>            cout &lt;&lt; “电话   “ &lt;&lt; abs-&gt;personArray[i].m_Phone  &lt;&lt; “\t”;<br>            cout &lt;&lt; “地址   “ &lt;&lt; abs-&gt;personArray[i].m_Addr   &lt;&lt; endl;<br>        }<br>    }<br>    system(“pause”);<br>    system(“cls”);<br>}</p>
+<p>//检测联系人是否存在<br>int isExist(Addressbooks * abs, string name)<br>{<br>    for (int i = 0; i &lt; abs-&gt;m_Size; i++)<br>    {   //找到用户输入的用户名<br>        if (abs-&gt;personArray[i].m_Name == name)<br>        {<br>            return 1;</p>
+<pre><code>    &#125;
+
+&#125;
+return -1;
+</code></pre>
+<p>}</p>
+<p>//3.删除联系人<br>void deletePerson(Addressbooks * abs)<br>{<br>    cout &lt;&lt; “请输入您要删除的联系人 “ &lt;&lt; endl;<br>    string name;<br>    cin &gt;&gt; name;<br>    int ret = isExist(abs, name);</p>
+<pre><code>if (ret != -1)
+&#123;
+    //查找到人，进行删除操作
+    for (int i = ret; i &lt; abs-&gt;m_Size; i++)
+    &#123;
+        //数据前移
+        abs-&gt;personArray[i] = abs-&gt;personArray[i + 1];
+
+    &#125;
+    abs-&gt;m_Size--;
+    cout &lt;&lt; &quot;删除成功&quot; &lt;&lt; endl;
+
+&#125;
+else
+&#123;
+    cout &lt;&lt; &quot;查无此人&quot; &lt;&lt; endl;
+
+&#125;
+system(&quot;pause&quot;);
+system(&quot;cls&quot;);
+</code></pre>
+<p>}<br>//4.查找指定联系人信息<br>void findPerson(Addressbooks * abs)<br>{<br>    cout &lt;&lt; “请输入您要查找的联系人” &lt;&lt; endl;<br>    string name;<br>    cin &gt;&gt; name;<br>    int ret = isExist(abs, name);</p>
+<pre><code>if (ret != -1)
+&#123;
+    cout &lt;&lt; &quot;姓名:  &quot; &lt;&lt; abs-&gt;personArray[ret].m_Name &lt;&lt; &quot;\t&quot;;
+    cout &lt;&lt; &quot;性别:  &quot; &lt;&lt; abs-&gt;personArray[ret].m_Sex  &lt;&lt; &quot;\t&quot;;
+    cout &lt;&lt; &quot;年龄   &quot; &lt;&lt; abs-&gt;personArray[ret].m_Age &lt;&lt; &quot;\t&quot;;
+    cout &lt;&lt; &quot;电话   &quot; &lt;&lt; abs-&gt;personArray[ret].m_Phone &lt;&lt; &quot;\t&quot;;
+    cout &lt;&lt; &quot;地址   &quot; &lt;&lt; abs-&gt;personArray[ret].m_Addr &lt;&lt; endl;
+
+&#125;
+else
+&#123;
+    cout &lt;&lt; &quot;查无此人&quot; &lt;&lt; endl;
+
+&#125;
+system(&quot;pause&quot;);
+system(&quot;cls&quot;);
+</code></pre>
+<p>}<br>//5.修改指定联系人信息<br>void modifyPerson(Addressbooks * abs)<br>{<br>    cout &lt;&lt; “请输入您要修改的联系人” &lt;&lt; endl;<br>    string name;<br>    cin &gt;&gt; name;<br>    int ret = isExist(abs, name);</p>
+<pre><code>if (ret != -1)
+&#123;
+    string name;
+    cout &lt;&lt; &quot;请输入姓名:  &quot;  &lt;&lt; endl;
+    cin &gt;&gt; name;
+    abs-&gt;personArray[ret].m_Name = name;
+    cout &lt;&lt; &quot;请输入性别:  &quot;  &lt;&lt; endl;
+    cout &lt;&lt; &quot;1 --- 男&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;2 --- 女&quot; &lt;&lt; endl;
+    int sex = 0;
+
+    while (true)
+    &#123;
+        cin &gt;&gt; sex;
+        if (sex == 1 || sex == 2)
+        &#123;
+            abs-&gt;personArray[ret].m_Sex = sex;
+
+        &#125;
+        cout &lt;&lt; &quot;输入有误,请输入1或者2&quot; &lt;&lt; endl;
+    &#125;
+    //年龄
+    cout &lt;&lt; &quot;请输入年龄   &quot; &lt;&lt;   endl;
+    int age = 0;
+    cin &gt;&gt; age;
+    abs-&gt;personArray[ret].m_Age = age;
+    //电话
+    cout &lt;&lt; &quot;请输入电话   &quot; &lt;&lt;   endl;
+    string phone;
+    cin &gt;&gt; phone;
+    abs-&gt;personArray[ret].m_Phone = phone;
+    //地址
+    cout &lt;&lt; &quot;请输入地址   &quot; &lt;&lt;   endl;
+    string address;
+    cin &gt;&gt; address;
+    abs-&gt;personArray[ret].m_Addr = address;
+&#125;
+else
+&#123;
+    cout &lt;&lt; &quot;查无此人&quot; &lt;&lt; endl;
+
+&#125;
+system(&quot;pause&quot;);
+system(&quot;cls&quot;);
+</code></pre>
+<p>}</p>
+<p>//清空所有联系人<br>void cleanPerson(Addressbooks * abs)<br>{<br>    while (true)<br>    {<br>        cout &lt;&lt; “您确定要清空所有联系人吗 1确定 2取消” &lt;&lt; endl;<br>        int clean = 0;<br>        cin &gt;&gt; clean;<br>        if (clean == 1)<br>        {<br>            abs-&gt;m_Size = 0;<br>            cout &lt;&lt; “通讯录已清空” &lt;&lt; endl;<br>            system(“pause”);<br>            system(“cls”);<br>            break;<br>        }<br>        else if (clean ==2)<br>        {<br>            break;<br>        }<br>        cout &lt;&lt; “请输入1或者2” &lt;&lt; endl;<br>    }</p>
+<p>}</p>
+<p>void showMenu()<br>{</p>
+<pre><code>cout &lt;&lt; &quot;*****   1. 添加联系人   *****&quot; &lt;&lt; endl;
+cout &lt;&lt; &quot;*****   2. 显示联系人   *****&quot; &lt;&lt; endl;
+cout &lt;&lt; &quot;*****   3. 删除联系人   *****&quot; &lt;&lt; endl;
+cout &lt;&lt; &quot;*****   4. 查找联系人   *****&quot; &lt;&lt; endl;
+cout &lt;&lt; &quot;*****   5. 修改联系人   *****&quot; &lt;&lt; endl;
+cout &lt;&lt; &quot;*****   6. 清空联系人   *****&quot; &lt;&lt; endl;
+cout &lt;&lt; &quot;*****   0. 退出通讯录   *****&quot; &lt;&lt; endl;
+</code></pre>
+<p>}<br>int main()<br>{</p>
+<pre><code>//创建通讯录结构体变量
+Addressbooks abs;
+//初始通讯录中当前人员个数
+abs.m_Size = 0;
+
+int select = 0; //创建用户选择的变量
+while (true)
+&#123;
+    //菜单调用
+    showMenu();
+
+    cin &gt;&gt; select;
+    switch (select)
+    &#123;
+    case 1://添加联系人
+        addPerson(&amp;abs);//利用地址传递可以修改实参
+        break;
+    case 2: //显示联系人
+        showPerson(&amp;abs);
+        break;
+    case 3: //删除联系人
+    //&#123;
+    //    cout &lt;&lt; &quot;请输入删除联系人姓名:  &quot; &lt;&lt; endl;
+    //    string name;
+    //    cin &gt;&gt; name;
+    //    if (isExist(&amp;abs, name) == -1)
+    //    &#123;
+    //        cout &lt;&lt; &quot;查无此人&quot; &lt;&lt; endl;
+    //    &#125;
+    //    else
+    //    &#123;
+    //        cout &lt;&lt; &quot;找到此人  &quot; &lt;&lt; endl;
+    //    &#125;
+    //&#125;
+        deletePerson(&amp;abs);
+        break;
+    case 4: //查找联系人
+        findPerson(&amp;abs);
+        break;
+    case 5://修改联系人
+        modifyPerson(&amp;abs);
+        break;
+    case 6://清空联系人
+        cleanPerson(&amp;abs);
+        break;
+    case 0://退出通讯录
+        cout &lt;&lt; &quot;欢迎下次使用&quot; &lt;&lt; endl;
+        system(&quot;pause&quot;);
+        return 0;
+        break;
+    default:
+        break;
+    &#125;
+    system(&quot;pause&quot;);
+&#125;
+</code></pre>
+<p>return 0;<br>}</p>
 <hr>
 
                 
@@ -503,7 +719,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/06/19/%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BB%8Ehello-world-%E5%88%B0%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E5%9E%8B/">http://example.com/2022/06/19/%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BB%8Ehello-world-%E5%88%B0%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E5%9E%8B/</a>
+                    <a href="http://example.com/2022/06/22/6222/">http://example.com/2022/06/22/6222/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -712,9 +928,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/06/22/6222/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="自己学习写的通讯录管理系统源码">
+                        
+                        <span class="card-title">自己学习写的通讯录管理系统源码</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            king
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2022/06/21/622/">
                     <div class="card-image">
@@ -732,45 +987,8 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-21
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            king
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/04/29/%E5%85%B3%E4%BA%8E%E4%B8%BB%E9%A2%98%E7%9A%84%E6%9B%B4%E6%8D%A2/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="关于主题的更换">
-                        
-                        <span class="card-title">关于主题的更换</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-21
                             </span>
                         <span class="publish-author">
                             
