@@ -4,9 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="自己学习写的通讯录管理系统源码, king">
+    <meta name="keywords" content="面向对象(1), king">
     <meta name="description" content="
-#include  //iostreamusing namespace std;#include   //string#define MAX 1000//设计联系人结构体struct Person{    //姓名    string m">
+面向对象
+1内存分区模型c++程序在执行时.讲内存大方向划分为4个区域代码区: 存放函数的二进制代码,由操作系统进行管理的全局区: 存放全局变量和静态变量以及常量栈区:由编译器自动分配释放,存放函数的参数值,局部变量等堆区:由程序员分配和">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +21,7 @@
 
     
 
-    <title>自己学习写的通讯录管理系统源码 | king</title>
+    <title>面向对象(1) | king</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -310,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">自己学习写的通讯录管理系统源码</h1>
+                    <h1 class="description center-align post-title">面向对象(1)</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +444,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-22
+                    2022-06-23
                 </div>
                 
 
@@ -465,233 +466,71 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <hr>
-<p>#include<iostream>  //iostream<br>using namespace std;<br>#include<string>   //string<br>#define MAX 1000<br>//设计联系人结构体<br>struct Person<br>{<br>    //姓名<br>    string m_Name;<br>    //性别    1男  2女<br>    int m_Sex;<br>    //年龄<br>    int m_Age;<br>    //电话<br>    string m_Phone;<br>    //住址<br>    string m_Addr;</p>
-<p>};</p>
-<p>//设计通讯录结构体<br>struct Addressbooks<br>{<br>    //通讯录中保存的联系人<br>    struct Person personArray[MAX];</p>
-<pre><code>//通讯录中当前记录联系人个数
-int m_Size;
-</code></pre>
-<p>};</p>
-<p>//1.添加联系人<br>void addPerson(Addressbooks * abs)<br>{<br>    //判断通讯录是否已满,如果满了就不再添加<br>    if (abs-&gt;m_Size == MAX)<br>    {<br>        cout &lt;&lt; “通讯录已满,无法添加” &lt;&lt; endl;<br>        return;</p>
-<pre><code>&#125;
-else
-&#123;
-    //添加具体联系人
-
-    //姓名
-    string name;
-    cout &lt;&lt; &quot;请输入姓名:  &quot; &lt;&lt; endl;
-    cin &gt;&gt; name;
-    abs-&gt;personArray[abs-&gt;m_Size].m_Name = name;
-    //性别
-    cout &lt;&lt; &quot;请输入性别 &quot; &lt;&lt; endl;
-    cout &lt;&lt; &quot;1 --- 男&quot; &lt;&lt; endl;
-    cout &lt;&lt; &quot;2 --- 女&quot; &lt;&lt; endl;
-    int sex = 0;
-
-    while (true)
-    &#123;
-        cin &gt;&gt; sex;
-        if (sex == 1 || sex == 2)
-        &#123;
-            abs-&gt;personArray[abs-&gt;m_Size].m_Sex = sex;
-            break;
-
-        &#125;
-
-        cout &lt;&lt; &quot;输入有误,请输入1或者2&quot; &lt;&lt; endl;
-    &#125;
-        //年龄
-        cout &lt;&lt; &quot;请输入年龄 :  &quot; &lt;&lt; endl;
-        int age = 0;
-        cin &gt;&gt; age;
-        abs-&gt;personArray[abs-&gt;m_Size].m_Age = age;
-        //电话
-        cout &lt;&lt; &quot;请输入联系电话 : &quot; &lt;&lt; endl;
-        string phone;
-        cin &gt;&gt; phone;
-        abs-&gt;personArray[abs-&gt;m_Size].m_Phone = phone;
-        //住址
-        cout &lt;&lt; &quot;请输入家庭住址 : &quot; &lt;&lt; endl;
-        string address;
-        cin &gt;&gt; address;
-        abs-&gt;personArray[abs-&gt;m_Size].m_Addr = address;
-
-        //更新通讯录人数
-        abs-&gt;m_Size++;
-        cout &lt;&lt; &quot;添加成功&quot; &lt;&lt; endl;
-
-        system(&quot;pause&quot;);
-        system(&quot;cls&quot;);
-
-
-&#125;
-</code></pre>
-<p>}</p>
-<p>//2.显示所有联系人<br>void showPerson(Addressbooks * abs)<br>{<br>    //判断通讯录中人数是否为0,如果为0，提示记录为空<br>    //如果不为0,显示记录的联系人信息<br>    if (abs-&gt;m_Size == 0)<br>    {<br>        cout &lt;&lt; “当前记录为空” &lt;&lt; endl;<br>    }<br>    else<br>    {<br>        for (int i = 0; i &lt; abs-&gt;m_Size; i++)<br>        {<br>            cout &lt;&lt; “姓名:  “ &lt;&lt; abs-&gt;personArray[i].m_Name   &lt;&lt; “\t”;<br>            cout &lt;&lt; “性别:  “ &lt;&lt; (abs-&gt;personArray[i].m_Sex ==1?”男”:”女”)   &lt;&lt; “\t”;<br>            cout &lt;&lt; “年龄   “  &lt;&lt; abs-&gt;personArray[i].m_Age   &lt;&lt; “\t”;<br>            cout &lt;&lt; “电话   “ &lt;&lt; abs-&gt;personArray[i].m_Phone  &lt;&lt; “\t”;<br>            cout &lt;&lt; “地址   “ &lt;&lt; abs-&gt;personArray[i].m_Addr   &lt;&lt; endl;<br>        }<br>    }<br>    system(“pause”);<br>    system(“cls”);<br>}</p>
-<p>//检测联系人是否存在<br>int isExist(Addressbooks * abs, string name)<br>{<br>    for (int i = 0; i &lt; abs-&gt;m_Size; i++)<br>    {   //找到用户输入的用户名<br>        if (abs-&gt;personArray[i].m_Name == name)<br>        {<br>            return 1;</p>
-<pre><code>    &#125;
-
-&#125;
-return -1;
-</code></pre>
-<p>}</p>
-<p>//3.删除联系人<br>void deletePerson(Addressbooks * abs)<br>{<br>    cout &lt;&lt; “请输入您要删除的联系人 “ &lt;&lt; endl;<br>    string name;<br>    cin &gt;&gt; name;<br>    int ret = isExist(abs, name);</p>
-<pre><code>if (ret != -1)
-&#123;
-    //查找到人，进行删除操作
-    for (int i = ret; i &lt; abs-&gt;m_Size; i++)
-    &#123;
-        //数据前移
-        abs-&gt;personArray[i] = abs-&gt;personArray[i + 1];
-
-    &#125;
-    abs-&gt;m_Size--;
-    cout &lt;&lt; &quot;删除成功&quot; &lt;&lt; endl;
-
-&#125;
-else
-&#123;
-    cout &lt;&lt; &quot;查无此人&quot; &lt;&lt; endl;
-
-&#125;
-system(&quot;pause&quot;);
-system(&quot;cls&quot;);
-</code></pre>
-<p>}<br>//4.查找指定联系人信息<br>void findPerson(Addressbooks * abs)<br>{<br>    cout &lt;&lt; “请输入您要查找的联系人” &lt;&lt; endl;<br>    string name;<br>    cin &gt;&gt; name;<br>    int ret = isExist(abs, name);</p>
-<pre><code>if (ret != -1)
-&#123;
-    cout &lt;&lt; &quot;姓名:  &quot; &lt;&lt; abs-&gt;personArray[ret].m_Name &lt;&lt; &quot;\t&quot;;
-    cout &lt;&lt; &quot;性别:  &quot; &lt;&lt; abs-&gt;personArray[ret].m_Sex  &lt;&lt; &quot;\t&quot;;
-    cout &lt;&lt; &quot;年龄   &quot; &lt;&lt; abs-&gt;personArray[ret].m_Age &lt;&lt; &quot;\t&quot;;
-    cout &lt;&lt; &quot;电话   &quot; &lt;&lt; abs-&gt;personArray[ret].m_Phone &lt;&lt; &quot;\t&quot;;
-    cout &lt;&lt; &quot;地址   &quot; &lt;&lt; abs-&gt;personArray[ret].m_Addr &lt;&lt; endl;
-
-&#125;
-else
-&#123;
-    cout &lt;&lt; &quot;查无此人&quot; &lt;&lt; endl;
-
-&#125;
-system(&quot;pause&quot;);
-system(&quot;cls&quot;);
-</code></pre>
-<p>}<br>//5.修改指定联系人信息<br>void modifyPerson(Addressbooks * abs)<br>{<br>    cout &lt;&lt; “请输入您要修改的联系人” &lt;&lt; endl;<br>    string name;<br>    cin &gt;&gt; name;<br>    int ret = isExist(abs, name);</p>
-<pre><code>if (ret != -1)
-&#123;
-    string name;
-    cout &lt;&lt; &quot;请输入姓名:  &quot;  &lt;&lt; endl;
-    cin &gt;&gt; name;
-    abs-&gt;personArray[ret].m_Name = name;
-    cout &lt;&lt; &quot;请输入性别:  &quot;  &lt;&lt; endl;
-    cout &lt;&lt; &quot;1 --- 男&quot; &lt;&lt; endl;
-    cout &lt;&lt; &quot;2 --- 女&quot; &lt;&lt; endl;
-    int sex = 0;
-
-    while (true)
-    &#123;
-        cin &gt;&gt; sex;
-        if (sex == 1 || sex == 2)
-        &#123;
-            abs-&gt;personArray[ret].m_Sex = sex;
-
-        &#125;
-        cout &lt;&lt; &quot;输入有误,请输入1或者2&quot; &lt;&lt; endl;
-    &#125;
-    //年龄
-    cout &lt;&lt; &quot;请输入年龄   &quot; &lt;&lt;   endl;
-    int age = 0;
-    cin &gt;&gt; age;
-    abs-&gt;personArray[ret].m_Age = age;
-    //电话
-    cout &lt;&lt; &quot;请输入电话   &quot; &lt;&lt;   endl;
-    string phone;
-    cin &gt;&gt; phone;
-    abs-&gt;personArray[ret].m_Phone = phone;
-    //地址
-    cout &lt;&lt; &quot;请输入地址   &quot; &lt;&lt;   endl;
-    string address;
-    cin &gt;&gt; address;
-    abs-&gt;personArray[ret].m_Addr = address;
-&#125;
-else
-&#123;
-    cout &lt;&lt; &quot;查无此人&quot; &lt;&lt; endl;
-
-&#125;
-system(&quot;pause&quot;);
-system(&quot;cls&quot;);
-</code></pre>
-<p>}</p>
-<p>//清空所有联系人<br>void cleanPerson(Addressbooks * abs)<br>{<br>    while (true)<br>    {<br>        cout &lt;&lt; “您确定要清空所有联系人吗 1确定 2取消” &lt;&lt; endl;<br>        int clean = 0;<br>        cin &gt;&gt; clean;<br>        if (clean == 1)<br>        {<br>            abs-&gt;m_Size = 0;<br>            cout &lt;&lt; “通讯录已清空” &lt;&lt; endl;<br>            system(“pause”);<br>            system(“cls”);<br>            break;<br>        }<br>        else if (clean ==2)<br>        {<br>            break;<br>        }<br>        cout &lt;&lt; “请输入1或者2” &lt;&lt; endl;<br>    }</p>
-<p>}</p>
-<p>void showMenu()<br>{</p>
-<pre><code>cout &lt;&lt; &quot;*****   1. 添加联系人   *****&quot; &lt;&lt; endl;
-cout &lt;&lt; &quot;*****   2. 显示联系人   *****&quot; &lt;&lt; endl;
-cout &lt;&lt; &quot;*****   3. 删除联系人   *****&quot; &lt;&lt; endl;
-cout &lt;&lt; &quot;*****   4. 查找联系人   *****&quot; &lt;&lt; endl;
-cout &lt;&lt; &quot;*****   5. 修改联系人   *****&quot; &lt;&lt; endl;
-cout &lt;&lt; &quot;*****   6. 清空联系人   *****&quot; &lt;&lt; endl;
-cout &lt;&lt; &quot;*****   0. 退出通讯录   *****&quot; &lt;&lt; endl;
-</code></pre>
-<p>}<br>int main()<br>{</p>
-<pre><code>//创建通讯录结构体变量
-Addressbooks abs;
-//初始通讯录中当前人员个数
-abs.m_Size = 0;
-
-int select = 0; //创建用户选择的变量
-while (true)
-&#123;
-    //菜单调用
-    showMenu();
-
-    cin &gt;&gt; select;
-    switch (select)
-    &#123;
-    case 1://添加联系人
-        addPerson(&amp;abs);//利用地址传递可以修改实参
-        break;
-    case 2: //显示联系人
-        showPerson(&amp;abs);
-        break;
-    case 3: //删除联系人
-    //&#123;
-    //    cout &lt;&lt; &quot;请输入删除联系人姓名:  &quot; &lt;&lt; endl;
-    //    string name;
-    //    cin &gt;&gt; name;
-    //    if (isExist(&amp;abs, name) == -1)
-    //    &#123;
-    //        cout &lt;&lt; &quot;查无此人&quot; &lt;&lt; endl;
-    //    &#125;
-    //    else
-    //    &#123;
-    //        cout &lt;&lt; &quot;找到此人  &quot; &lt;&lt; endl;
-    //    &#125;
-    //&#125;
-        deletePerson(&amp;abs);
-        break;
-    case 4: //查找联系人
-        findPerson(&amp;abs);
-        break;
-    case 5://修改联系人
-        modifyPerson(&amp;abs);
-        break;
-    case 6://清空联系人
-        cleanPerson(&amp;abs);
-        break;
-    case 0://退出通讯录
-        cout &lt;&lt; &quot;欢迎下次使用&quot; &lt;&lt; endl;
-        system(&quot;pause&quot;);
-        return 0;
-        break;
-    default:
-        break;
-    &#125;
-    system(&quot;pause&quot;);
-&#125;
-</code></pre>
-<p>return 0;<br>}</p>
+<p>面向对象</p>
+<p>1内存分区模型<br>c++程序在执行时.讲内存大方向划分为4个区域<br>代码区: 存放函数的二进制代码,由操作系统进行管理的<br>全局区: 存放全局变量和静态变量以及常量<br>栈区:由编译器自动分配释放,存放函数的参数值,局部变量等<br>堆区:由程序员分配和释放,若程序员不释放,程序结束时由操作系统回收</p>
+<p>内存四区意义<br>不同区域存放的数据,赋予不同的生命周期,给我们更大的灵活编程</p>
+<p>1.1程序运行前<br>在程序编译后，生成了exe可执行程序，未执行该程序前分为两个区域</p>
+<p>代码区;<br>存放CPU 执行的机器指令<br>代码区是共享的，共享的目的是对于频繁被执行的程序，只需要在内存中有一份代码即可<br>代码区是只读的，使其只读的原因是防止程序意外地修改了它的指令</p>
+<p>全局区:<br>全局变量和静态变量存放在此.<br>全局区还包含了常量区,字符串常量和其他常量也存放在此.<br>该区域的数据在程序结束后由操作系统释放.</p>
+<p>在普通变量前面加static。属于静态变量</p>
+<p>常量<br>字符串常量 “hello world”</p>
+<p>const修饰的变量<br>const修饰的全局变量   const修饰的局部变量</p>
+<p>​栈区：</p>
+<p>​由编译器自动分配释放, 存放函数的参数值,局部变量等<br>注意事项：不要返回局部变量的地址，栈区开辟的数据由编译器自动释放</p>
+<p>​堆区：</p>
+<p>​由程序员分配释放,若程序员不释放,程序结束时由操作系统回收<br>在C++中主要利用new在堆区开辟内存</p>
+<p>​C++中利用==new==操作符在堆区开辟数据<br>堆区开辟的数据，由程序员手动开辟，手动释放，释放利用操作符 ==delete==<br>语法：<code> new 数据类型</code><br>​利用new创建的数据，会返回该数据对应的类型的指针</p>
+<p>作用： 给变量起别名</p>
+<p>语法： 数据类型 &amp;别名 = 原名`</p>
+<p>引用必须初始化<br>引用在初始化后，不可以改变</p>
+<p>引用做函数参数<br>作用：函数传参时，可以利用引用的技术让形参修饰实参<br>优点：可以简化指针修改实参</p>
+<p>引用做函数返回值<br>引用是可以作为函数的返回值存在的</p>
+<p>不要返回局部变量引用<br>函数调用作为左值</p>
+<p>函数重载</p>
+<p>函数重载概述</p>
+<p><strong>作用：</strong>函数名可以相同，提高复用性</p>
+<p><strong>函数重载满足条件：</strong></p>
+<ul>
+<li>同一个作用域下</li>
+<li>函数名称相同</li>
+<li>函数参数<strong>类型不同</strong>  或者 <strong>个数不同</strong> 或者 <strong>顺序不同</strong></li>
+</ul>
+<p><strong>注意:</strong>  函数的返回值不可以作为函数重载的条件</p>
+<h2 id="4-类和对象"><a href="#4-类和对象" class="headerlink" title="4 类和对象"></a><strong>4</strong> 类和对象</h2><p>C++面向对象的三大特性为：==封装、继承、多态==</p>
+<p>C++认为==万事万物都皆为对象==，对象上有其属性和行为</p>
+<p><strong>例如：</strong></p>
+<p>​    人可以作为对象，属性有姓名、年龄、身高、体重…，行为有走、跑、跳、吃饭、唱歌…</p>
+<p>​    车也可以作为对象，属性有轮胎、方向盘、车灯…,行为有载人、放音乐、放空调…</p>
+<p>​    具有相同性质的==对象==，我们可以抽象称为==类==，人属于人类，车属于车类</p>
+<p>封装</p>
+<p>封装的意义</p>
+<p>封装是C++面向对象三大特性之一</p>
+<p>封装的意义：</p>
+<ul>
+<li>将属性和行为作为一个整体，表现生活中的事物</li>
+<li>将属性和行为加以权限控制</li>
+</ul>
+<p><strong>封装意义一：</strong></p>
+<p>​在设计类的时候，属性和行为写在一起，表现事物</p>
+<p><strong>语法：</strong> <code>class 类名&#123;   访问权限： 属性  / 行为  &#125;;</code></p>
+<p><strong>封装意义二：</strong></p>
+<p>类在设计时，可以把属性和行为放在不同的权限下，加以控制</p>
+<p>访问权限有三种：</p>
+<ol>
+<li>public        公共权限  </li>
+<li>protected 保护权限</li>
+<li>private      私有权限</li>
+</ol>
+<p>struct和class区别</p>
+<p>在C++中 struct和class唯一的<strong>区别</strong>就在于 <strong>默认的访问权限不同</strong></p>
+<p>区别：</p>
+<ul>
+<li>struct 默认权限为公共</li>
+<li>class   默认权限为私有</li>
+</ul>
+<p>成员属性设置为私有</p>
+<p><strong>优点1：</strong>将所有成员属性设置为私有，可以自己控制读写权限</p>
+<p><strong>优点2：</strong>对于写权限，我们可以检测数据的有效性</p>
 <hr>
 
                 
@@ -719,7 +558,7 @@ while (true)
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/06/22/6222/">http://example.com/2022/06/22/6222/</a>
+                    <a href="http://example.com/2022/06/23/623/">http://example.com/2022/06/23/623/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -928,9 +767,10 @@ while (true)
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/06/23/623/">
                     <div class="card-image">
@@ -948,9 +788,9 @@ while (true)
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -959,6 +799,7 @@ while (true)
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -969,13 +810,13 @@ while (true)
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/21/622/">
+                <a href="/2022/06/22/6222/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="复习笔记 - 从数据类型 到结构体">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="自己学习写的通讯录管理系统源码">
                         
-                        <span class="card-title">复习笔记 - 从数据类型 到结构体</span>
+                        <span class="card-title">自己学习写的通讯录管理系统源码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -986,7 +827,7 @@ while (true)
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-22
                             </span>
                         <span class="publish-author">
                             
